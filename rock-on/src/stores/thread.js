@@ -15,8 +15,9 @@ export const threadStore = defineStore({
       try {
         const { data } = await axios({
           method: "GET",
-          url: `${base_url}/threads`,
+          url: `${base_url}/`,
         });
+        console.log(data);
         this.threadData = data;
       } catch (err) {
         console.log(err);
