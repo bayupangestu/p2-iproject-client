@@ -4,7 +4,8 @@ import Concert from "@/views/Concert.vue";
 import Login from "@/views/Login.vue";
 import Register from "@/views/Register.vue";
 import News from "@/views/News.vue";
-import Thread from "@/views/Thread.vue";
+import detailThread from "@/views/detailThread.vue";
+import threadAdd from "@/views/threadAdd.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -34,9 +35,14 @@ const router = createRouter({
       component: News,
     },
     {
-      path: "/threads",
-      name: "thread",
-      component: Thread,
+      path: "/threads/add",
+      name: "thread-add",
+      component: threadAdd,
+    },
+    {
+      path: "/threads/:id(\\d+)",
+      name: "thread-detail",
+      component: detailThread,
     },
   ],
 });
@@ -45,6 +51,12 @@ router.beforeEach((to, from, next) => {
   if (to.name === "login" || to.name === "register") {
     if (isAuthenticated) {
       next({ name: "forum" });
+    } else {
+      next();
+    }
+  } else if (to.name === "thread-add") {
+    if (!isAuthenticated) {
+      next({ name: "login" });
     } else {
       next();
     }

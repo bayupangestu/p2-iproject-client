@@ -34,16 +34,5 @@ export const userStore = defineStore({
         },
       });
     },
-    async fetchThread() {
-      try {
-        const { data } = await axios({
-          method: "GET",
-          url: `${base_url}/thread`,
-        });
-        this.threadData = data;
-      } catch (err) {
-        console.log(err);
-      }
-    },
   },
 });

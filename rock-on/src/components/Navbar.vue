@@ -15,11 +15,17 @@
           <span class="text-sm">News</span>
         </router-link><button></button>
       </div>
-      <div class="p-2 ml-auto flex-shrink-0 flex">
+      <div v-if="!token" class="p-2 ml-auto flex-shrink-0 flex">
         <router-link to="login"
           class="shadow-sm text-white rounded-md bg-blue-400 hover:bg-blue-500 flex items-center px-5 py-2 transition-colors duration-150 ml-3.5">
-          <span class="text-sm">Sign In</span>
+          <span class="text-sm">Login</span>
         </router-link>
+      </div>
+      <div v-if="token" class="p-2 ml-auto flex-shrink-0 flex">
+        <button @click.prevent="logout"
+          class="shadow-sm text-white rounded-md bg-blue-400 hover:bg-blue-500 flex items-center px-5 py-2 transition-colors duration-150 ml-3.5">
+          <span class="text-sm">Logout</span>
+        </button>
       </div>
     </div>
   </div>
@@ -27,7 +33,18 @@
 
 <script>
 export default {
-  name: 'navbar'
+  name: 'navbar',
+  data() {
+    return {
+      token: localStorage.getItem('access_token')
+    }
+  },
+  methods: {
+    logout() {
+      this.$router.push('/')
+      localStorage.clear()
+    },
+  }
 }
 </script>
 

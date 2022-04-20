@@ -52,12 +52,13 @@ export default {
   methods: {
     ...mapActions(userStore, ["loginAction"]),
     async loginMethod() {
-      console.log("masukkkk");
       try {
+        console.log(this.email);
         const data = await this.loginAction({
           email: this.email,
           password: this.password,
         });
+
         localStorage.setItem("access_token", data.data.dataUser.id_token);
         localStorage.setItem("id", data.data.dataUser.id);
         localStorage.setItem("username", data.data.dataUser.username);
