@@ -6,6 +6,7 @@ import Register from "@/views/Register.vue";
 import News from "@/views/News.vue";
 import detailThread from "@/views/detailThread.vue";
 import threadAdd from "@/views/threadAdd.vue";
+import PostAdd from "@/views/PostAdd.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -43,6 +44,11 @@ const router = createRouter({
       path: "/threads/:id(\\d+)",
       name: "thread-detail",
       component: detailThread,
+    },
+    {
+      path: "/threads/:id(\\d+)/posts/add",
+      name: "post-add",
+      component: PostAdd,
     },
   ],
 });

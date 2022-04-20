@@ -47,7 +47,7 @@ export default {
   methods: {
     ...mapActions(threadStore, ["fetchThread"]),
     addPostPage() {
-      this.$router.push(`/threads/${this.threadId}/posts`);
+      this.$router.push(`/threads/${this.dataThread.id}/posts/add`);
     }
   },
   components: { Navbar },
