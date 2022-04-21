@@ -3,7 +3,7 @@
     <form @submit.prevent="addPostMethod"
       class="space-y-6 p-4 w-96 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-[#465269] dark:border-gray-700"
       action="#">
-      <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center">Add / Update Post</h5>
+      <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center">Add</h5>
       <div>
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title Post</label>
         <input type="text" name="email" id="email"

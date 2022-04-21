@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     ...mapState(apiStore, ["newsData"])
-  }
+  },
 }
 </script>
 

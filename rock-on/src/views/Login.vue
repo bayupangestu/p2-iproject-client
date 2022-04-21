@@ -53,7 +53,6 @@ export default {
     ...mapActions(userStore, ["loginAction"]),
     async loginMethod() {
       try {
-        console.log(this.email);
         const data = await this.loginAction({
           email: this.email,
           password: this.password,

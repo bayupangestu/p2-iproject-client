@@ -9,7 +9,7 @@
       </a>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ event.location }}.</p>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ event.startDate }}.</p>
-      <a :href="event.url"
+      <a :href="event.url" target="_blank"
         class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         Link to Event
         <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -18,14 +18,26 @@
             clip-rule="evenodd"></path>
         </svg>
       </a>
+      <button type="button" @click.prevent="paymentMethod"
+        class="ml-9 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Buy
+        ticket</button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "pinia";
+import { apiStore } from "../stores/api";
+
 export default {
   name: 'card-concert',
   props: ['event'],
+  methods: {
+    ...mapActions(apiStore, ['payment']),
+    paymentMethod() {
+      this.payment()
+    }
+  }
 }
 </script>
 
