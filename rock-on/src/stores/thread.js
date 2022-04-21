@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-let base_url = "http://localhost:3000";
+let base_url = "https://iproject-bayupangestu.herokuapp.com";
 export const threadStore = defineStore({
   id: "thread",
   state: () => ({
