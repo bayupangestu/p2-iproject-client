@@ -3,7 +3,7 @@ import axios from "axios";
 
 let base_url = "http://localhost:3000";
 export const threadStore = defineStore({
-  id: "counter",
+  id: "thread",
   state: () => ({
     threadData: [],
   }),
@@ -15,7 +15,7 @@ export const threadStore = defineStore({
       try {
         const { data } = await axios({
           method: "GET",
-          url: `${base_url}/threads`,
+          url: `${base_url}/`,
         });
         this.threadData = data;
       } catch (err) {

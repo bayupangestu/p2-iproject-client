@@ -60,7 +60,7 @@ router.beforeEach((to, from, next) => {
     } else {
       next();
     }
-  } else if (to.name === "thread-add") {
+  } else if (to.name === "thread-add" || to.name === "post-add") {
     if (!isAuthenticated) {
       next({ name: "login" });
     } else {

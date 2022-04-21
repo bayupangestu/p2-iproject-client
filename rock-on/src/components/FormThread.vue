@@ -3,7 +3,8 @@
     <form @submit.prevent="addThreadMethod"
       class="space-y-6 p-4 w-96 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-[#465269] dark:border-gray-700"
       action="#">
-      <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center">Add / Update Thread</h5>
+      <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center">Add Thread
+      </h5>
       <div>
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title Thread</label>
         <input type="text" name="email" id="email"

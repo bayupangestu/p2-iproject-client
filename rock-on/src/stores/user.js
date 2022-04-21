@@ -3,7 +3,7 @@ import axios from "axios";
 
 let base_url = "http://localhost:3000";
 export const userStore = defineStore({
-  id: "counter",
+  id: "user",
   state: () => ({
     threadData: [],
   }),

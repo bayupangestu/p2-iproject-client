@@ -14,7 +14,7 @@
         {{ thread.user.username }}
       </td>
       <td class="px-6 py-4">
-        {{ thread.createdAt }}
+        {{ thread.createdAt.slice(0, 10) }}
       </td>
     </tr>
   </tbody>

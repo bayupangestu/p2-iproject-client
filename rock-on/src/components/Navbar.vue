@@ -6,7 +6,7 @@
           class="flex items-center py-2 transition-colors duration-150 text-gray-700 hover:text-blue-600 border-b-4 border-transparent hover:border-blue-500">
           <span class="text-sm">Forum</span>
         </router-link>
-        <router-link to="concerts"
+        <router-link to="concerts" @click="fetchConcerts()"
           class="flex items-center py-2 transition-colors duration-150 text-gray-700 hover:text-blue-600 border-b-4 border-transparent hover:border-blue-500 ml-5">
           <span class="text-sm">Concert</span>
         </router-link>
@@ -31,7 +31,9 @@
   </div>
 </template>
 
-<script>
+<script>import { mapActions } from "pinia"
+import { apiStore } from "../stores/api"
+
 export default {
   name: 'navbar',
   data() {
@@ -40,6 +42,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(apiStore, ['fetchConcerts', 'fetchNews']),
     logout() {
       this.$router.push('/')
       localStorage.clear()
